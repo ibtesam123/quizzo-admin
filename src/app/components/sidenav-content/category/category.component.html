@@ -42,7 +42,7 @@
     <div *ngIf="categoryList && categoryList.length!==0 && !categoryLoading"
         class="flex flex-col items-center bg-gray-600 text-white text-sm py-4 font-light">
         <div *ngFor="let category of categoryList;index as i" class="flex items-center py-2 w-full font-light text-sm">
-            <p class="px-4">{{categoryList[i].id}}.</p>
+            <p class="px-4">{{i+1}}.</p>
             <p class="flex-grow">{{categoryList[i].name}}</p>
             <div class="flex-grow flex items-center justify-start">
                 <img class="h-28 w-28" [src]="categoryList[i].image" alt="Category Image" />
