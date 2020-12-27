@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home'])
     } else {
       this.authLoading = false
-      this.authError = this.authService.error
+      this.authError = this.authService.errorMessage
     }
 
     this.email = ""

@@ -12,7 +12,7 @@ export class AuthService {
 
   admin: User
 
-  error: string
+  errorMessage: string
 
   constructor(
     private readonly http: HttpClient,
@@ -29,13 +29,36 @@ export class AuthService {
         }).toPromise()
 
       this.admin = res.data
-      this.error = undefined
+      this.errorMessage = undefined
       return true
     } catch ({ error }) {
-      error = error as ErrorResponse
-      this.error = error.message
+      this.errorMessage = error.message
       this.admin = undefined
       return false
     }
   }
+
+  async getAdmin(token: string): Promise<boolean> {
+    try {
+
+      let res = await this.http.get<UserResponse>(
+        `${BASE_URL}/user/me`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      ).toPromise()
+
+      this.admin = res.data
+      this.errorMessage = undefined
+
+      return true
+    } catch ({ error }) {
+      this.errorMessage = error.message
+      this.admin = undefined
+      return false
+    }
+  }
+
 }

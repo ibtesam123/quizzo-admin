@@ -6,7 +6,11 @@ module.exports = {
     "./projects/**/*.ts",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        left: "left",
+      },
+    },
   },
   variants: {},
   plugins: [],

@@ -1,0 +1,8 @@
+<div class="absolute flex flex-col top-14 w-52 h-full pt-8 bg-gray-900 transition-left duration-700 ease-in"
+    [ngClass]="collapseClasses">
+    <div *ngFor="let content of navContent;index as i"
+        class="pt-3 pb-3 mt-2 pl-4 select-none text-gray-200 hover:text-white cursor-pointer hover:bg-gray-700"
+        (click)="selectContent(i)">
+        {{content}}
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="flex flex-col flex-grow p-4 md:pr-8">
+    <!-- category title -->
+
+    <div class="flex-grow flex items-center">
+        <h1 class="text-2xl font-medium text-gray-900">Category</h1>
+        <i class="fas fa-sync-alt ml-2 text-sm text-gray-700 cursor-pointer hover:text-gray-800"
+            (click)="refreshCategory()"></i>
+        <div class="flex-grow"></div>
+        <button
+            class="bg-blue-500 px-4 py-2 text-xs text-white rounded focus:outline-none hover:bg-blue-600">NEW</button>
+    </div>
+
+    <!-- category table header -->
+    <div class="flex py-2 w-full md:self-center md:mt-8 bg-gray-900 text-white font-light text-sm mt-4">
+        <p class="px-4">#</p>
+        <p class="flex-grow">Name</p>
+        <p class="flex-grow">Image</p>
+    </div>
+
+    <!--category loading -->
+    <div *ngIf="categoryLoading"
+        class="flex justify-center items-center bg-gray-600 text-white text-sm py-4 font-light">
+        <!-- <i class="fas fa-spinner animate-spin"></i> -->
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+        </svg>
+        <span class="text-white pl-1">Loading</span>
+    </div>
+
+    <!-- no category data -->
+
+    <div *ngIf="categoryList && categoryList.length===0 && !categoryLoading"
+        class="flex justify-center items-center bg-gray-600 text-white text-sm py-4 font-light">
+        No categories found
+    </div>
+
+    <!-- category data -->
+    <div *ngIf="categoryList && categoryList.length!==0 && !categoryLoading"
+        class="flex flex-col items-center bg-gray-600 text-white text-sm py-4 font-light">
+        <div *ngFor="let category of categoryList;index as i" class="flex items-center py-2 w-full font-light text-sm">
+            <p class="px-4">{{categoryList[i].id}}.</p>
+            <p class="flex-grow">{{categoryList[i].name}}</p>
+            <div class="flex-grow flex items-center justify-start">
+                <img class="h-28 w-28" [src]="categoryList[i].image" alt="Category Image" />
+            </div>
+            <i class="far fa-edit pr-2 hover:text-gray-300 cursor-pointer"></i>
+        </div>
+    </div>
+
+</div>
