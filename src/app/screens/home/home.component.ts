@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   collapse: boolean
   collapseClasses: {}
-  selectedIndex: number = 0
+  selectedIndex: number = 2
 
   ngOnInit(): void {
     this.collapse = IS_PHONE

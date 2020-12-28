@@ -9,7 +9,13 @@ export class QuestionsComponent implements OnInit {
 
   constructor() { }
 
+  searchText: string = ""
+
   ngOnInit(): void {
+  }
+
+  searchQuestion() {
+    console.log(this.searchText)
   }
 
 }

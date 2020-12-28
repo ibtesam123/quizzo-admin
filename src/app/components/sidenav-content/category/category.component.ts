@@ -15,6 +15,7 @@ export class CategoryComponent implements OnInit {
 
   categoryList: Category[]
   categoryLoading: boolean
+  searchText: string = ""
 
   ngOnInit(): void {
     this.categoryLoading = true

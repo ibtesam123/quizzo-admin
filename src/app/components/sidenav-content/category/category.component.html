@@ -10,6 +10,15 @@
             class="bg-blue-500 px-4 py-2 text-xs text-white rounded focus:outline-none hover:bg-blue-600">NEW</button>
     </div>
 
+    <!-- category search -->
+    <form
+        class="flex flex-grow bg-gray-200 h-12 mt-5 rounded-md items-center justify-start text-gray-500 focus-within:text-gray-600 p-2">
+        <i class="fas fa-search "></i>
+        <input type="text" placeholder="Search for category..."
+            class="border-none outline-none bg-gray-200 ml-3 flex-grow" [(ngModel)]="searchText" name="search">
+        <i *ngIf="searchText!==''" class="fas fa-times mx-2" (click)="searchText=''"></i>
+    </form>
+
     <!-- category table header -->
     <div class="flex py-2 w-full md:self-center md:mt-8 bg-gray-900 text-white font-light text-sm mt-4">
         <p class="px-4">#</p>
