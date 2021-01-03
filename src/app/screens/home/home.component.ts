@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   selectContent(i: number) {
     this.selectedIndex = i
-    if (IS_PHONE)
+    if (IS_PHONE && !this.collapse)
       this.toggleCollapse()
   }
 

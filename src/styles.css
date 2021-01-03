@@ -14359,6 +14359,11 @@ video {
   outline-offset: 2px;
 }
 
+.outline-gray {
+  outline: 1px solid #ababab;
+  outline-offset: 0;
+}
+
 .focus-within\:outline-none:focus-within {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -14374,6 +14379,11 @@ video {
   outline-offset: 2px;
 }
 
+.focus-within\:outline-gray:focus-within {
+  outline: 1px solid #ababab;
+  outline-offset: 0;
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -14387,6 +14397,11 @@ video {
 .focus\:outline-black:focus {
   outline: 2px dotted black;
   outline-offset: 2px;
+}
+
+.focus\:outline-gray:focus {
+  outline: 1px solid #ababab;
+  outline-offset: 0;
 }
 
 .overflow-auto {
@@ -42952,6 +42967,11 @@ video {
     outline-offset: 2px;
   }
 
+  .sm\:outline-gray {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .sm\:focus-within\:outline-none:focus-within {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -42967,6 +42987,11 @@ video {
     outline-offset: 2px;
   }
 
+  .sm\:focus-within\:outline-gray:focus-within {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .sm\:focus\:outline-none:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -42980,6 +43005,11 @@ video {
   .sm\:focus\:outline-black:focus {
     outline: 2px dotted black;
     outline-offset: 2px;
+  }
+
+  .sm\:focus\:outline-gray:focus {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
   }
 
   .sm\:overflow-auto {
@@ -71502,6 +71532,11 @@ video {
     outline-offset: 2px;
   }
 
+  .md\:outline-gray {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .md\:focus-within\:outline-none:focus-within {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -71517,6 +71552,11 @@ video {
     outline-offset: 2px;
   }
 
+  .md\:focus-within\:outline-gray:focus-within {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .md\:focus\:outline-none:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -71530,6 +71570,11 @@ video {
   .md\:focus\:outline-black:focus {
     outline: 2px dotted black;
     outline-offset: 2px;
+  }
+
+  .md\:focus\:outline-gray:focus {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
   }
 
   .md\:overflow-auto {
@@ -100052,6 +100097,11 @@ video {
     outline-offset: 2px;
   }
 
+  .lg\:outline-gray {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .lg\:focus-within\:outline-none:focus-within {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -100067,6 +100117,11 @@ video {
     outline-offset: 2px;
   }
 
+  .lg\:focus-within\:outline-gray:focus-within {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .lg\:focus\:outline-none:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -100080,6 +100135,11 @@ video {
   .lg\:focus\:outline-black:focus {
     outline: 2px dotted black;
     outline-offset: 2px;
+  }
+
+  .lg\:focus\:outline-gray:focus {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
   }
 
   .lg\:overflow-auto {
@@ -128602,6 +128662,11 @@ video {
     outline-offset: 2px;
   }
 
+  .xl\:outline-gray {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .xl\:focus-within\:outline-none:focus-within {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -128617,6 +128682,11 @@ video {
     outline-offset: 2px;
   }
 
+  .xl\:focus-within\:outline-gray:focus-within {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .xl\:focus\:outline-none:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -128630,6 +128700,11 @@ video {
   .xl\:focus\:outline-black:focus {
     outline: 2px dotted black;
     outline-offset: 2px;
+  }
+
+  .xl\:focus\:outline-gray:focus {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
   }
 
   .xl\:overflow-auto {
@@ -157152,6 +157227,11 @@ video {
     outline-offset: 2px;
   }
 
+  .\32xl\:outline-gray {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .\32xl\:focus-within\:outline-none:focus-within {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -157167,6 +157247,11 @@ video {
     outline-offset: 2px;
   }
 
+  .\32xl\:focus-within\:outline-gray:focus-within {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
+  }
+
   .\32xl\:focus\:outline-none:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
@@ -157180,6 +157265,11 @@ video {
   .\32xl\:focus\:outline-black:focus {
     outline: 2px dotted black;
     outline-offset: 2px;
+  }
+
+  .\32xl\:focus\:outline-gray:focus {
+    outline: 1px solid #ababab;
+    outline-offset: 0;
   }
 
   .\32xl\:overflow-auto {

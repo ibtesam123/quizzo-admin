@@ -1,0 +1,63 @@
+<div class="flex flex-col flex-grow p-4 md:pr-40 overflow-scroll" style="height: 40rem;">
+
+    <!-- Question title -->
+    <div class="flex items-center">
+        <i class="fas fa-chevron-left text-gray-900 cursor-pointer" (click)="backClicked()"></i>
+        <h1 class="text-2xl font-medium ml-3 text-gray-900">New Question</h1>
+    </div>
+
+    <form class="mt-6 ">
+
+        <div class="p-2 outline-gray mt-4 rounded w-full flex justify-between">
+            <label for="category" class="text-gray-400">Category: </label>
+            <select name="category" id="category" class="outline-none" [(ngModel)]="categoryID">
+                <option *ngFor="let c of categoryList" [value]="c.id">{{c.name}}</option>
+            </select>
+        </div>
+
+        <div class="p-2 outline-gray mt-4 rounded w-full">
+            <input type="text" placeholder="Question" name="question" [(ngModel)]="question"
+                class="outline-none w-full">
+        </div>
+        <div class="p-2 outline-gray mt-4 rounded w-full">
+            <input type="text" placeholder="Option 1" name="option1" [(ngModel)]="option1" class="outline-none w-full">
+        </div>
+        <div class="p-2 outline-gray mt-4 rounded w-full">
+            <input type="text" placeholder="Option 2" name="option2" [(ngModel)]="option2" class="outline-none w-full">
+        </div>
+        <div class="p-2 outline-gray mt-4 rounded w-full">
+            <input type="text" placeholder="Option 3" name="option3" [(ngModel)]="option3" class="outline-none w-full">
+        </div>
+        <div class="p-2 outline-gray mt-4 rounded w-full">
+            <input type="text" placeholder="Option 4" name="option4" [(ngModel)]="option4" class="outline-none w-full">
+        </div>
+        <div class="flex w-full mt-6 justify-evenly">
+            <div *ngFor="let e of [0,1,2,3]"
+                class="flex items-center justify-center h-12 w-12 text-white rounded cursor-pointer"
+                [ngClass]="(e===answer)?'bg-green-500':'bg-red-500'" (click)="setOption(e)">{{e+1}}
+            </div>
+        </div>
+    </form>
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <div class="flex flex-col w-72">
+            <img *ngIf="!imageURL" class="h-60" src="/assets/placeholder.jpg">
+            <img *ngIf="imageURL" class="h-60" [src]="imageURL">
+            <p *ngIf="error" class="text-red-500 md:self-center text-sm my-2">{{error}}</p>
+        </div>
+        <input type="file" accept="image/*" #file (change)="selectImage($event)" class="hidden">
+        <button
+            class="self-center md:ml-5 py-2 px-4 bg-blue-500 text-white rounded mt-2 hover:bg-blue-600 cursor-pointer focus:outline-none"
+            (click)="file.click()">
+            Upload Image
+        </button>
+        <button *ngIf="!quesLoading"
+            class="self-center md:ml-5 py-2 px-4 bg-green-500 text-white rounded mt-2 hover:bg-green-600 cursor-pointer focus:outline-none"
+            (click)="addQuestion()">
+            Confirm
+        </button>
+        <div *ngIf="quesLoading" class="m-1 mt-5 md:ml-5 self-center">
+            <div class="loader">
+            </div>
+        </div>
+    </div>
+</div>

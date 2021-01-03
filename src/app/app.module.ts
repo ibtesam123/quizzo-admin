@@ -17,6 +17,11 @@ import { GamesComponent } from './components/sidenav-content/games/games.compone
 import { QuestionsComponent } from './components/sidenav-content/questions/questions.component';
 import { UsersComponent } from './components/sidenav-content/users/users.component';
 import { ApiService } from './services/api.service';
+import { CategoryListComponent } from './components/sidenav-content/category/category-list/category-list.component';
+import { AddCategoryComponent } from './components/sidenav-content/category/add-category/add-category.component';
+import { QuestionCatListComponent } from './components/sidenav-content/questions/question-cat-list/question-cat-list.component';
+import { AddQuestionComponent } from './components/sidenav-content/questions/add-question/add-question.component';
+import { QuestionDashboardComponent } from './components/sidenav-content/questions/question-dashboard/question-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,11 @@ import { ApiService } from './services/api.service';
     GamesComponent,
     QuestionsComponent,
     UsersComponent,
+    AddCategoryComponent,
+    CategoryListComponent,
+    QuestionCatListComponent,
+    AddQuestionComponent,
+    QuestionDashboardComponent,
   ],
   imports: [
     BrowserModule,

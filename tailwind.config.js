@@ -10,6 +10,9 @@ module.exports = {
       transitionProperty: {
         left: "left",
       },
+      outline: {
+        gray: "1px solid #ababab",
+      },
     },
   },
   variants: {},

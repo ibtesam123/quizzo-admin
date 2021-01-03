@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-questions',
@@ -9,13 +9,14 @@ export class QuestionsComponent implements OnInit {
 
   constructor() { }
 
-  searchText: string = ""
-
   ngOnInit(): void {
   }
 
-  searchQuestion() {
-    console.log(this.searchText)
+  @Input()
+  pageIndex: number
+
+  changePageIndex(i: number) {
+    this.pageIndex = i
   }
 
 }

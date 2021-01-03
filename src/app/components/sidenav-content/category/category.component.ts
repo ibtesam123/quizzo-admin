@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/models/category.model';
-import { ApiService } from 'src/app/services/api.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-category',
@@ -10,34 +8,16 @@ import { ApiService } from 'src/app/services/api.service';
 export class CategoryComponent implements OnInit {
 
   constructor(
-    private readonly apiService: ApiService,
   ) { }
 
-  categoryList: Category[]
-  categoryLoading: boolean
-  searchText: string = ""
+  @Input()
+  pageIndex: number
 
   ngOnInit(): void {
-    this.categoryLoading = true
-    this.apiService.getAllCategory()
-      .then((_) => {
-        this.categoryLoading = false
-        if (this.apiService.categoryList)
-          this.categoryList = this.apiService.categoryList
-        else
-          this.categoryList = []
-        this.categoryLoading = false
-      })
   }
 
-  async refreshCategory() {
-
-    this.categoryLoading = true
-
-    await this.apiService.refreshCategory()
-    this.categoryList = this.apiService.categoryList
-
-    this.categoryLoading = false
+  changePageIndex(i: number) {
+    this.pageIndex = i
   }
 
 }

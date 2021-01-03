@@ -1,39 +1,5 @@
-<div class="flex flex-col flex-grow p-4 md:pr-8">
-
-    <!-- question title -->
-    <div class="flex-grow flex items-center">
-        <h1 class="text-2xl font-medium text-gray-900">Questions</h1>
-        <i class="fas fa-sync-alt ml-2 text-sm text-gray-700 cursor-pointer hover:text-gray-800"></i>
-    </div>
-
-    <!-- search question -->
-    <form
-        class="flex flex-grow bg-gray-200 h-12 mt-5 rounded-md items-center justify-start text-gray-500 focus-within:text-gray-600 p-2"
-        (submit)="searchQuestion()">
-        <i class="fas fa-search "></i>
-        <input type="text" placeholder="Search for questions..."
-            class="border-none outline-none bg-gray-200 ml-3 flex-grow" [(ngModel)]="searchText" name="search">
-        <i *ngIf="searchText!==''" class="fas fa-times mx-2" (click)="searchText=''"></i>
-    </form>
-
-    <!-- question data section -->
-
-    <div class="flex flex-col items-center md:justify-center my-9 md:flex-row">
-        <!-- total questions -->
-        <div class=" flex flex-col px-6 py-4 w-3/4 md:w-1/3 cursor-pointer md:justify-evenly rounded-md bg-blue-500">
-            <p class="text-2xl font-normal text-gray-50">Questions</p>
-            <p class="self-end mt-4 text-4xl text-gray-100">10000</p>
-            <p class="self-end mt-2 text-sm text-gray-300"><span class="text-white">Last Updated: </span>15-12-2020</p>
-        </div>
-
-        <div class="h-5 md:w-20"></div>
-
-        <!-- add question -->
-        <div class=" flex flex-col px-6 py-4 w-3/4 md:w-1/3 cursor-pointer md:justify-evenly rounded-md bg-green-500">
-            <p class="text-2xl font-normal text-gray-50 opacity-0">#</p>
-            <p class="self-center mt-4 mb-3 text-xl text-gray-100">ADD NEW QUESTION</p>
-            <p class="self-end mt-2 text-sm text-gray-300 opacity-0">#</p>
-        </div>
-    </div>
-
+<div [ngSwitch]="pageIndex">
+    <app-question-dashboard (addQuestionEvent)="changePageIndex(2)" *ngSwitchCase="0"></app-question-dashboard>
+    <app-question-cat-list *ngSwitchCase="1"></app-question-cat-list>
+    <app-add-question (backEvent)="changePageIndex(0)" *ngSwitchCase="2"></app-add-question>
 </div>
