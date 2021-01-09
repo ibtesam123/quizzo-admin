@@ -1,1 +1,19 @@
-<p>question-cat-list works!</p>
+<div class="flex flex-col flex-grow p-4 md:pr-40 overflow-scroll" style="height: 40rem;">
+    <div class="flex items-center">
+        <i class="fas fa-chevron-left text-gray-900 cursor-pointer" (click)="backClicked()"></i>
+        <h1 class="text-2xl font-medium ml-3 text-gray-900">Choose Category</h1>
+    </div>
+
+    <div *ngIf="categoryLoading" class="flex justify-center pt-10">
+        <div class="loader"></div>
+        <p class="ml-5 text-gray-600">Loading</p>
+    </div>
+
+    <div *ngIf="!categoryLoading" class="flex flex-wrap mt-10 ml-5">
+        <div *ngFor="let c of categoryList;index as i"
+            class="py-4 px-10 mt-5 mr-6  text-gray-100 font-medium text-lg rounded cursor-pointer" [style]="getColor(i)"
+            (click)="categoryClicked(i)">
+            {{c.name}}
+        </div>
+    </div>
+</div>

@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BASE_URL } from '../constants/constant';
 import { Category } from '../models/category.model';
+import { Question } from '../models/question.model';
 import { CategoryListResponse, CategoryResponse } from '../response/category.response';
-import { QuestionResponse } from '../response/question.response';
+import { QuestionListResponse, QuestionResponse } from '../response/question.response';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -47,10 +48,11 @@ export class ApiService {
 
   async addCategory(catName: string, image: File): Promise<boolean> {
     try {
+
+      // Upload category
       let res = await this.http.post<CategoryResponse>(`${BASE_URL}/category`,
         {
           name: catName,
-          image: null,
         },
         {
           headers: {
@@ -59,7 +61,21 @@ export class ApiService {
           }
         }).toPromise()
 
-      this.categoryList.push(res.data)
+      // Upload image
+      let formData = new FormData()
+      formData.append('image', image)
+
+      let res2 = await this.http.post<CategoryResponse>(
+        `${BASE_URL}/category/image?catID=${res.data.id}`,
+        formData,
+        {
+          headers: {
+            'Authorization': `Bearer ${this.authService.admin.token}`,
+          }
+        },
+      ).toPromise()
+
+      this.categoryList.push(res2.data)
 
       this.error = undefined
 
@@ -76,11 +92,15 @@ export class ApiService {
     question: string,
     options: string[],
     answer: number,
-    categoryID: number
+    categoryID: number,
+    image: File,
   ): Promise<boolean> {
 
     try {
 
+      console.log(categoryID)
+
+      //Upload question
       let res = await this.http.post<QuestionResponse>(
         `${BASE_URL}/question`,
         {
@@ -95,7 +115,22 @@ export class ApiService {
       }
       ).toPromise();
 
-      console.log(res.data)
+      // Upload image
+      if (image) {
+        let formData = new FormData()
+        formData.append('image', image)
+
+        await this.http.post<QuestionResponse>(
+          `${BASE_URL}/question/image?qID=${res.data.id}`,
+          formData,
+          {
+            headers: {
+              'Authorization': `Bearer ${this.authService.admin.token}`,
+            }
+          },
+        ).toPromise()
+      }
+
       this.error = undefined
 
       return true
@@ -106,5 +141,25 @@ export class ApiService {
       return false
     }
 
+  }
+
+  async getQuestionsForCategory(id: number, pageIndex: number): Promise<Question[]> {
+    try {
+
+      let res = await this.http.get<QuestionListResponse>(
+        `${BASE_URL}/question/category/${id}?limit=20`,
+        {
+          headers: {
+            'Authorization': `Bearer ${this.authService.admin.token}`
+          }
+        }
+      ).toPromise()
+
+      return res.data
+
+    } catch ({ error }) {
+      console.log(error)
+      return []
+    }
   }
 }

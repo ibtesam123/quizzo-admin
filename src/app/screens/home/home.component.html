@@ -4,7 +4,7 @@
     <div [ngClass]="collapseClasses" [ngSwitch]="selectedIndex">
         <app-dashboard *ngSwitchCase="0"></app-dashboard>
         <app-category *ngSwitchCase="1" [pageIndex]="0"></app-category>
-        <app-questions *ngSwitchCase="2" [pageIndex]="0"></app-questions>
+        <app-questions *ngSwitchCase="2" [pageIndex]="1"></app-questions>
         <app-games *ngSwitchCase="3"></app-games>
         <app-users *ngSwitchCase="4"></app-users>
     </div>

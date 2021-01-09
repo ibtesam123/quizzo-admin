@@ -1,5 +1,9 @@
 <div [ngSwitch]="pageIndex">
-    <app-question-dashboard (addQuestionEvent)="changePageIndex(2)" *ngSwitchCase="0"></app-question-dashboard>
-    <app-question-cat-list *ngSwitchCase="1"></app-question-cat-list>
+    <app-question-dashboard (addQuestionEvent)="changePageIndex(2)" (questionsEvent)="changePageIndex(1)"
+        *ngSwitchCase="0"></app-question-dashboard>
+    <app-question-cat-list (backEvent)="changePageIndex(0)" (categoryEvent)="setCategoryIDForQuestionList($event)"
+        *ngSwitchCase="1">
+    </app-question-cat-list>
     <app-add-question (backEvent)="changePageIndex(0)" *ngSwitchCase="2"></app-add-question>
+    <app-question-list (backEvent)="changePageIndex(1)" [categoryID]="catID" *ngSwitchCase="3"></app-question-list>
 </div>

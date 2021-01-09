@@ -55,6 +55,12 @@ export class AddCategoryComponent implements OnInit {
 
   async uploadCategory() {
     this.catLoading = true
+    if (!this.file) {
+      window.alert('Please select an image')
+      this.catLoading = false
+      return
+    }
+
     let res = await this.apiService.addCategory(this.catName, this.file)
 
     this.catLoading = false
@@ -65,6 +71,7 @@ export class AddCategoryComponent implements OnInit {
       this.error = undefined
       this.catName = ""
       this.imgUrl = ""
+      this.backClicked()
     }
   }
 

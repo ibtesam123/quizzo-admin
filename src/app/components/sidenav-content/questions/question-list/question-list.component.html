@@ -1,0 +1,40 @@
+<div class="flex flex-col flex-grow p-4 md:pr-40 overflow-scroll" style="height: 40rem;">
+    <div class="flex items-center">
+        <i class="fas fa-chevron-left text-gray-900 cursor-pointer" (click)="backClicked()"></i>
+        <h1 class="text-2xl font-medium ml-3 text-gray-900">{{catName}}</h1>
+    </div>
+
+    <div *ngIf="questionLoading" class="flex justify-center pt-10">
+        <div class="loader"></div>
+        <p class="ml-5 text-gray-600">Loading</p>
+    </div>
+
+    <table *ngIf="!questionLoading" class="mt-8 flex-grow w-full">
+        <tr class="bg-gray-600 text-white">
+            <th class="px-2 font-normal">#</th>
+            <th class="px-2 font-normal">Question</th>
+            <th class="px-2 font-normal">Option1</th>
+            <th class="px-2 font-normal">Option2</th>
+            <th class="px-2 font-normal">Option3</th>
+            <th class="px-2 font-normal">Option4</th>
+            <th class="px-2 font-normal">Correct</th>
+            <th class="px-2 font-normal">Image</th>
+        </tr>
+        <tr *ngIf="questionList.length===0;else data">
+            <td colspan="8" class="text-gray-800 py-3 text-center">No Questions Found</td>
+        </tr>
+        <tr id="data" *ngFor="let q of questionList;index as i" class=" py-4">
+            <td class="text-center">{{i+1}}</td>
+            <td>{{q.question}}</td>
+            <td class="text-center py-4">{{q.options[0]}}</td>
+            <td class="text-center py-4">{{q.options[1]}}</td>
+            <td class="text-center py-4">{{q.options[2]}}</td>
+            <td class="text-center py-4">{{q.options[3]}}</td>
+            <td class="text-center py-4">{{q.options[q.answer]}}</td>
+            <td class="text-center py-4 text-blue-600 cursor-pointer" (click)="imageClicked(i)">{{ q.image!==null ?
+                'view
+                image' : null}}</td>
+        </tr>
+    </table>
+
+</div>

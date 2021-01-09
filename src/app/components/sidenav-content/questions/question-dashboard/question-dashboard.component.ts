@@ -14,6 +14,9 @@ export class QuestionDashboardComponent implements OnInit {
   @Output()
   addQuestionEvent = new EventEmitter()
 
+  @Output()
+  questionsEvent = new EventEmitter()
+
   ngOnInit(): void {
   }
 
@@ -23,5 +26,9 @@ export class QuestionDashboardComponent implements OnInit {
 
   addQuestionClicked() {
     this.addQuestionEvent.emit("")
+  }
+
+  questionsClicked() {
+    this.questionsEvent.emit("")
   }
 }

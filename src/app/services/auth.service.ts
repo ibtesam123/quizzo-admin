@@ -32,6 +32,7 @@ export class AuthService {
       this.errorMessage = undefined
       return true
     } catch ({ error }) {
+      console.log(error)
       this.errorMessage = error.message
       this.admin = undefined
       return false

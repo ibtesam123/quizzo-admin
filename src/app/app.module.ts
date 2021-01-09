@@ -22,6 +22,7 @@ import { AddCategoryComponent } from './components/sidenav-content/category/add-
 import { QuestionCatListComponent } from './components/sidenav-content/questions/question-cat-list/question-cat-list.component';
 import { AddQuestionComponent } from './components/sidenav-content/questions/add-question/add-question.component';
 import { QuestionDashboardComponent } from './components/sidenav-content/questions/question-dashboard/question-dashboard.component';
+import { QuestionListComponent } from './components/sidenav-content/questions/question-list/question-list.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { QuestionDashboardComponent } from './components/sidenav-content/questio
     QuestionCatListComponent,
     AddQuestionComponent,
     QuestionDashboardComponent,
+    QuestionListComponent,
   ],
   imports: [
     BrowserModule,

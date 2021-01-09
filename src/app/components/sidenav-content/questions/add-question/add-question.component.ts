@@ -19,11 +19,17 @@ export class AddQuestionComponent implements OnInit {
     if (!this.apiService.categoryList)
       this.apiService.getAllCategory().then(_ => {
         this.categoryList = this.apiService.categoryList
-        this.categoryID = this.categoryList[0].id
+        if (this.categoryList.length == 0)
+          this.categoryID = -1
+        else
+          this.categoryID = this.categoryList[0].id
       })
     else {
       this.categoryList = this.apiService.categoryList
-      this.categoryID = this.categoryList[0].id
+      if (this.categoryList.length == 0)
+        this.categoryID = -1
+      else
+        this.categoryID = this.categoryList[0].id
     }
   }
 
@@ -65,12 +71,18 @@ export class AddQuestionComponent implements OnInit {
 
   async addQuestion() {
     this.quesLoading = true
-    let res = await this.apiService.addQuestion(this.question, [
-      this.option1,
-      this.option2,
-      this.option3,
-      this.option4,
-    ], this.answer, this.categoryID)
+    let res = await this.apiService.addQuestion(
+      this.question,
+      [
+        this.option1,
+        this.option2,
+        this.option3,
+        this.option4,
+      ],
+      this.answer,
+      this.categoryID,
+      this.file
+    )
 
     if (res) {
       this.quesLoading = false
